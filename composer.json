@@ -1,0 +1,19 @@
+{
+    "name": "chocannon/alga",
+    "type": "library",
+    "description": "the php utility classes",
+    "keywords": ["alga", "utility"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chocannon",
+            "email": "chocannon@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": { "Alga\\": "src" }
+    }
+}
