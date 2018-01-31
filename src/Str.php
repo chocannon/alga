@@ -16,7 +16,7 @@ class Str
      * 检测字符串是否包含某些字符
      * @param  string       $haystack 
      * @param  array|string $needles  
-     * @return bool
+     * @return boolean
      */
     public static function contains($haystack, $needles)
     {
@@ -57,7 +57,7 @@ class Str
      * 检测字符串是否以某些字符结尾
      * @param  string       $haystack 
      * @param  string|array $needles 
-     * @return bool         
+     * @return boolean         
      */
     public static function endWith($haystack, $needles)
     {
@@ -74,7 +74,7 @@ class Str
      * 检测字符串是否以某些字符开头
      * @param  string       $haystack 
      * @param  string|array $needles 
-     * @return bool      
+     * @return boolean      
      */
     public static function startWith($haystack, $needles)
     {
@@ -149,5 +149,28 @@ class Str
             $string = lcfirst($string);
         }
         return self::$cache['camel'][$key][(int)$lcf] = $string;
+    }
+
+
+    /**
+     * 获取随机长度字符串
+     * @param  integer $length
+     * @return string  
+     */
+    public static function random($length = 6)
+    {
+        $strPool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        return self::substr(str_shuffle(str_repeat($strPool, $length)), 0, $length);
+    }
+
+
+    /**
+     * 检测字符串是否为json格式
+     * @param  string  $string
+     * @return boolean 
+     */
+    public static function isJson($string)
+    {
+        return !empty($string) && is_string($string) && is_object(json_decode($string));
     }
 }
